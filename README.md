@@ -11,6 +11,11 @@ During startup, a deploy of the dacpac file is performed, which creates a databa
 ## If you are running the application in Docker, enter your improved connectionString 
 > CONNECTIONSTRINGS__CONNECTIONSTRING=Data Source=ServerName;Initial Catalog=DistributedCaching;User Id=UserName;Password=UserPassword;
 
+### Start the application just go to /src directory and 
+> docker-compose up. 
+### The application runs at 
+> http://localhost:5009
+
 Caching is one of the important and commonly used performance technique for low-latency responses from APIs. A cache is a high-speed memory that persists frequently accessed but less frequently changing data. Using a cache reduces processing time for APIs as the data is readily available for it to fetch and use.
 
 Most basic use of a cache is in-memory caching, where data is stored within the application memory.
