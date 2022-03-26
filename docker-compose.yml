@@ -1,0 +1,17 @@
+version: "3.9"
+networks:
+  localdev:
+services:
+  web:
+    image: distributed-cache
+    build: ./src
+    restart: always
+    environment:
+      - CONNECTIONSTRINGS__CONNECTIONSTRING=Data Source=ServerName;Initial Catalog=DistributedCaching;User Id=UserName;Password=UserPassword;
+      - DISTRIBUTEDCACHING__SCHEMANAME=dbo
+      - DISTRIBUTEDCACHING__TABLENAME=CachingTable
+      - DISTRIBUTEDCACHING__CACHEKEY=temperatures
+    ports:
+      - "5009:5009"
+    networks:
+      - localdev
