@@ -1,9 +1,17 @@
+using DistributedCachingPoC.Application;
+using DistributedCachingPoC.Infrastructure;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddApplication();
+
+using (var serviceProvider = builder.Services.BuildServiceProvider())
+{
+    var loggerFactory = serviceProvider.GetRequiredService<ILoggerFactory>();
+    builder.Services.AddInfrastructure(builder.Configuration, loggerFactory);
+}
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
