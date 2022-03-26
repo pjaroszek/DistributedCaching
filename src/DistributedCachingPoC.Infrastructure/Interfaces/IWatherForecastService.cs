@@ -1,6 +1,6 @@
 namespace DistributedCachingPoC.Infrastructure.Interfaces;
 
-using DistributedCachingPoC.Application.WeatherForecast.Models;
+using DistributedCachingPoC.Application.WeatherForecast.ViewModels;
 
 public interface IWatherForecastService
 {

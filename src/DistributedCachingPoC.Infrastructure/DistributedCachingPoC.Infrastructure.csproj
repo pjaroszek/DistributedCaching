@@ -1,5 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+ <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\DistributedCachingPoC.Application\DistributedCachingPoC.Application.csproj" />
   </ItemGroup>
@@ -18,11 +25,21 @@
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="6.0.0" />
   </ItemGroup>
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <GenerateEmbeddedFilesManifest>true</GenerateEmbeddedFilesManifest>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+ <ItemGroup>
+    <Using Include="Microsoft.Extensions.Logging" />
+    <Using Include="Microsoft.Extensions.Options" />
+    <Using Include="Microsoft.Extensions.Configuration" />
+    <Using Include="Microsoft.Extensions.DependencyInjection" />
+    <Using Include="Microsoft.Extensions.FileProviders" />
+    <Using Include="Microsoft.SqlServer.Dac" />
+    <Using Include="Microsoft.Data.SqlClient" />
+    <Using Include="Microsoft.Extensions.Caching.Distributed" />
+    <Using Include="System.Reflection" />
+    <Using Include="System.Collections.Generic" />
+    <Using Include="System.Threading" />
+    <Using Include="System.Threading.Tasks" />
+    <Using Include="MediatR" />
+    <Using Include="System.Text.Json" />
+  </ItemGroup>
 
 </Project>

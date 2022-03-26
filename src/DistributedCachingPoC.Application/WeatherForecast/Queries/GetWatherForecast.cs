@@ -1,8 +1,6 @@
-
 namespace DistributedCachingPoC.Application.WeatherForecast.Queries;
 
-using MediatR;
-using Models;
+using ViewModels;
 
 public sealed record GetWatherForecast : IRequest<IEnumerable<WeatherForecast>>
 { }

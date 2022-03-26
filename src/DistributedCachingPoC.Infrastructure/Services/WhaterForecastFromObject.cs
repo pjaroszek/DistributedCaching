@@ -1,11 +1,7 @@
 namespace DistributedCachingPoC.Infrastructure.Services;
 
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-using DistributedCachingPoC.Application.WeatherForecast.Models;
+using DistributedCachingPoC.Application.WeatherForecast.ViewModels;
 using DistributedCachingPoC.Infrastructure.Interfaces;
-using Microsoft.Extensions.Logging;
 
 internal sealed class WhaterForecastFromObject : IWatherForecastService
 {

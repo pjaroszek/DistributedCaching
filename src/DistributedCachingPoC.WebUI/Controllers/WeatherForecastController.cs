@@ -1,8 +1,6 @@
 namespace DistributedCachingPoC.WebUI.Controllers;
 
 using DistributedCachingPoC.Application.WeatherForecast.Queries;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
 [Route("[controller]")]
