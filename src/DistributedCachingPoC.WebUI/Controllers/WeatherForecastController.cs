@@ -1,32 +1,28 @@
-using Microsoft.AspNetCore.Mvc;
-
 namespace DistributedCachingPoC.WebUI.Controllers;
+
+using DistributedCachingPoC.Application.WeatherForecast.Queries;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+    private readonly ILogger<WeatherForecastController> logger;
+    private readonly IMediator mediator;
 
-    private readonly ILogger<WeatherForecastController> _logger;
-
-    public WeatherForecastController(ILogger<WeatherForecastController> logger)
-    {
-        _logger = logger;
-    }
+    public WeatherForecastController(ILogger<WeatherForecastController> logger, IMediator mediator) =>
+        (this.logger, this.mediator) = (logger, mediator);
 
     [HttpGet(Name = "GetWeatherForecast")]
-    public IEnumerable<WeatherForecast> Get()
+    public async Task<IActionResult> Get()
     {
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-        {
-            Date = DateTime.Now.AddDays(index),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        })
-        .ToArray();
+        var command = new GetWatherForecast();
+
+        this.logger.LogInformation("{Command}", command);
+
+        var result = await mediator.Send(command, CancellationToken.None);
+
+        return await Task.FromResult(Ok(result)).ConfigureAwait(false);
     }
 }
