@@ -11,6 +11,8 @@ During startup, a deploy of the dacpac file is performed, which creates a databa
 ## If you are running the application in Docker, enter your improved connectionString 
 > CONNECTIONSTRINGS__CONNECTIONSTRING=Data Source=ServerName;Initial Catalog=DistributedCaching;User Id=UserName;Password=UserPassword;
 
+The database will be created during system start-up (.dacpac installation file)
+
 ### Start the application just go to /DistributedCaching directory and 
 > docker-compose up. 
 ### The application runs at 
