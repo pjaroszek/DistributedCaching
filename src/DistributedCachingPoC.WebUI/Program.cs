@@ -3,6 +3,7 @@ using DistributedCachingPoC.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 builder.Services.AddApplication();
 
 using (var serviceProvider = builder.Services.BuildServiceProvider())
@@ -17,12 +18,8 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 

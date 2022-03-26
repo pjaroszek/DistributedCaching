@@ -31,7 +31,16 @@ public static class DependencyInjection
         IFileProvider fileProvider = new ManifestEmbeddedFileProvider(Assembly.GetExecutingAssembly());
         services.AddSingleton<IFileProvider>(fileProvider);
 
-        var connectionString = configuration.GetConnectionString("DistCache_ConnectionString");
+        var connectionString = configuration.GetConnectionString("ConnectionString");
+        logger.LogInformation(connectionString);
+
+        logger.LogInformation(options.SchemaName);
+        logger.LogInformation(options.TableName);
+        logger.LogInformation(options.CacheKey);
+
+
+
+
         try
         {
             var connectionStringBuilder = new SqlConnectionStringBuilder(connectionString);
