@@ -1,15 +1,8 @@
 namespace DistributedCachingPoC.Infrastructure.WeatherForecast.QueryHandlers;
 
-using System.Threading;
-using System.Text.Json;
-
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.Extensions.Options;
 using DistributedCachingPoC.Infrastructure.Interfaces;
-using DistributedCachingPoC.Application.WeatherForecast.Models;
+using DistributedCachingPoC.Application.WeatherForecast.ViewModels;
 using DistributedCachingPoC.Application.WeatherForecast.Queries;
-using MediatR;
 
 internal sealed class GetWatherForecastHandler : IRequestHandler<GetWatherForecast, IEnumerable<WeatherForecast>>
 {

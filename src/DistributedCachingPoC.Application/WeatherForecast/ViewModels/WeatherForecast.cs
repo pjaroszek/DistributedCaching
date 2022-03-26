@@ -1,4 +1,4 @@
-namespace DistributedCachingPoC.Application.WeatherForecast.Models;
+namespace DistributedCachingPoC.Application.WeatherForecast.ViewModels;
 
 public sealed class WeatherForecast
 {

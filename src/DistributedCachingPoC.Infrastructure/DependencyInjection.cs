@@ -1,13 +1,5 @@
 ﻿namespace DistributedCachingPoC.Infrastructure;
 
-using System.Reflection;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.FileProviders;
-using Microsoft.SqlServer.Dac;
-using Microsoft.Data.SqlClient;
-using MediatR;
-using Microsoft.Extensions.Logging;
 using DistributedCachingPoC.Infrastructure.Interfaces;
 using DistributedCachingPoC.Infrastructure.Services;
 
@@ -32,14 +24,6 @@ public static class DependencyInjection
         services.AddSingleton<IFileProvider>(fileProvider);
 
         var connectionString = configuration.GetConnectionString("ConnectionString");
-        logger.LogInformation(connectionString);
-
-        logger.LogInformation(options.SchemaName);
-        logger.LogInformation(options.TableName);
-        logger.LogInformation(options.CacheKey);
-
-
-
 
         try
         {
