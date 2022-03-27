@@ -18,6 +18,13 @@ The database will be created during system start-up (.dacpac installation file)
 ### The application runs at 
 > http://localhost:5009
 
+
+The image is also available at hub.docker.com at:
+[hub.docker.com distributed-caching](https://hub.docker.com/repository/docker/pjaroszek/distributed-caching)
+
+You can download it using the command:
+> docker push pjaroszek/distributed-caching:latest
+
 Caching is one of the important and commonly used performance technique for low-latency responses from APIs. A cache is a high-speed memory that persists frequently accessed but less frequently changing data. Using a cache reduces processing time for APIs as the data is readily available for it to fetch and use.
 
 Most basic use of a cache is in-memory caching, where data is stored within the application memory.
